@@ -58,10 +58,11 @@
   <main>
     <section class="card" role="region" aria-label="site content">
       <nav class="tabs" role="tablist" aria-label="主导航">
-        <button id="tab-blog" role="tab" aria-selected="true" class="active" data-panel="panel-blog" onclick="location.href='blog/index.html'">博客</button>
-        <button id="tab-about" role="tab" aria-selected="false" data-panel="panel-about">个人简介</button>
-        <button id="tab-high" role="tab" aria-selected="false" data-panel="panel-high">Highlights</button>
-
+        
+         <button role="tab" aria-controls="panel-blog" onclick="location.href='blog/index.html'">博客</button>
+         <button role="tab" aria-controls="panel-about">个人简介</button>
+         <button role="tab" aria-controls="panel-high">Highlights</button>
+</nav>
       </nav>
 
       <div class="grid">
@@ -149,6 +150,19 @@
         }
       });
     });
+
+    
+    document.querySelectorAll('[role="tab"]').forEach(tab => {
+  tab.addEventListener('click', () => {
+    // 隐藏所有 tabpanel
+    document.querySelectorAll('[role="tabpanel"]').forEach(panel => {
+      panel.hidden = true;
+    });
+    // 显示对应的
+    const target = tab.getAttribute('aria-controls');
+    document.getElementById(target).hidden = false;
+  });
+});
 
   
 
