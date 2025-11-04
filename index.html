@@ -1,197 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kosumo的blog</title>
-  <style>
-    :root{--accent:#6C63FF;--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2}
-    *{box-sizing:border-box}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"PingFang SC","Hiragino Sans GB",sans-serif;margin:0;background:linear-gradient(180deg,#071022 0%, #051027 100%);color:#e6eef6;line-height:1.6}
-    header{padding:32px 20px 18px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#3da3ff);display:flex;align-items:center;justify-content:center;font-weight:700;color:white}
-    h1{font-size:20px;margin:0}
-    p.lead{margin:0;color:var(--muted);font-size:13px}
-
-    main{max-width:1000px;margin:20px auto;padding:20px}
-    .card{background:rgba(255,255,255,0.03);border-radius:12px;padding:18px}
-
-    /* tab nav */
-    nav.tabs{display:flex;gap:8px;padding:10px 0}
-    nav.tabs button{background:transparent;border:0;padding:10px 16px;border-radius:10px;color:var(--muted);cursor:pointer;font-weight:600}
-    nav.tabs button.active{color:var(--accent);background:linear-gradient(90deg, rgba(108,99,255,0.08), rgba(61,163,255,0.02));box-shadow:0 4px 14px rgba(108,99,255,0.06)}
-
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:12px}
-    .main-col{min-height:320px}
-    .side{position:relative}
-
-    article.post{margin-bottom:14px;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
-    article.post h3{margin:0 0 6px;font-size:16px}
-    article.post p.meta{margin:0;color:var(--muted);font-size:13px}
-
-    .about{display:flex;gap:14px;align-items:flex-start}
-    .avatar{width:96px;height:96px;border-radius:12px;background:linear-gradient(135deg,#ffd6f0,#c7d2fe);display:flex;align-items:center;justify-content:center;color:#111;font-weight:700;font-size:28px}
-    .bio small{color:var(--muted)}
-
-    .highlights ul{list-style:none;padding:0;margin:8px 0 0}
-    .highlights li{padding:10px;border-radius:8px;margin-bottom:8px;background:rgba(255,255,255,0.02)}
-
-    footer{max-width:1000px;margin:28px auto;color:var(--muted);font-size:13px;text-align:center}
-
-    /* responsive */
-    @media (max-width:880px){
-      .grid{grid-template-columns:1fr;}
-      .side{order:2}
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kosumo的 Blog</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
   <header>
-    <div class="brand">
-      <div class="logo" aria-hidden="true">K</div>
-      <div>
-        <h1>Kosumo的blog</h1>
-        <p class="lead">写写想法、记录学习与生活 — 欢迎来到我的小天地</p>
-      </div>
-    </div>
-    <div aria-hidden="true">📬 kosumo@example.com</div>
+    <h1>Kosumo’s Blog</h1>
+    <nav>
+      <a href="#" data-panel="panel-home" class="active">主页</a>
+      <a href="#" data-panel="panel-about">关于</a>
+      <a href="#" data-panel="panel-high">Highlights</a>
+    </nav>
   </header>
 
   <main>
-    <section class="card" role="region" aria-label="site content">
-      <nav class="tabs" role="tablist" aria-label="主导航">
-        <button id="tab-blog" role="tab" aria-selected="true" class="active" data-panel="panel-blog" onclick="location.href='blog/index.html'">博客</button>
-        <button id="tab-about" role="tab" aria-selected="false" data-panel="panel-about">个人简介</button>
-        <button id="tab-high" role="tab" aria-selected="false" data-panel="panel-high">Highlights</button>
-      </nav>
+    <!-- 左侧主要内容 -->
+    <section class="content">
+      <!-- 主页 -->
+      <div id="panel-home" role="tabpanel">
+        <h2>最新文章</h2>
+        <ul class="post-list">
+          <li><a href="posts/post1.html">用声音连接文化：我的播客计划</a></li>
+          <li><a href="posts/post2.html">如何在学习编程时保持创造力</a></li>
+          <li><a href="posts/post3.html">我眼中的跨文化沟通</a></li>
+        </ul>
+      </div>
 
-      <div class="grid">
-        <div class="main-col">
-          <div id="panel-blog" role="tabpanel">
-            <!-- sample posts -->
-            <article class="post">
-              <h3>如何高效复习 — 我的五个策略</h3>
-              <p class="meta">2025-10-10 · 分类：学习 · 阅读 412</p>
-              <p>本文分享我在备考与日常学习中常用的五种策略：间隔重复、主动回忆、刻意练习、归纳笔记与健康作息。每一条都配有可执行的小步骤，帮助你把方法落地。</p>
-            </article>
-
-            <article class="post">
-              <h3>在国外学习的文化冲击</h3>
-              <p class="meta">2025-08-03 · 分类：生活 · 阅读 289</p>
-              <p>留学生活既有自由也有不适应，本文从饮食、沟通与时间管理三方面谈感受与调整方法。</p>
-            </article>
-
-            <article class="post">
-              <h3>项目日记：我的第一个 WebApp</h3>
-              <p class="meta">2025-06-18 · 分类：编程 · 阅读 156</p>
-              <p>记录构建一款小工具的思路、技术选型与踩到的坑，适合想把项目做成可交付作品的人。</p>
-            </article>
-
-            <div style="margin-top:12px;color:var(--muted);font-size:13px">更多文章正在整理中…</div>
-          </div>
-
-          <div id="panel-about" role="tabpanel" hidden>
-            <div class="about">
-              <div class="avatar">K</div>
-              <div class="bio">
-                <h3>关于 Kosumo</h3>
-                <p><small>你好，我是 Kosumo，一名热爱编程与跨文化交流的学生/创作者。我喜欢把复杂的问题拆解成小任务，并通过写作把思路整理清楚。</small></p>
-                <p>技能：HTML / CSS / JavaScript · Python · 数据分析 · 英语 · 普通话</p>
-                <p>兴趣：播客、旅行、K-pop（aespa 粉）与烘焙。</p>
-              </div>
-            </div>
-          </div>
-
-          <div id="panel-high" role="tabpanel" hidden>
-            <section class="highlights">
-              <h3>Highlights</h3>
-              <p class="meta">精选事项与速览</p>
-              <ul>
-                <li><strong>播客计划：</strong>准备启动一个以“文化身份”为主题的对谈节目。</li>
-                <li><strong>正在学习：</strong>深挖前端性能优化与可访问性。</li>
-                <li><strong>最新项目：</strong>一个可分享的学习笔记工具，支持导出 Markdown。</li>
-              </ul>
-            </section>
+      <!-- 关于 -->
+      <div id="panel-about" role="tabpanel" hidden>
+        <div class="about">
+          <div class="avatar">K</div>
+          <div class="bio">
+            <h3>关于 Kosumo</h3>
+            <p><small>你好，我是Kosumo,或者你也可以叫我Elaine.Find more about me at my blog page!</small></p>
+            <p>兴趣：网页前端&后端开发（HTML，CSS，Python-flask）</p>
           </div>
         </div>
+      </div>
 
-        <aside class="side">
-          <div class="card">
-            <h4>快速导航</h4>
-            <ul style="margin:8px 0 0;padding:0;list-style:none;font-size:14px;color:var(--muted)">
-              <li style="padding:8px 0"><a href="#panel-blog" data-jump style="color:inherit;text-decoration:none">• 最近文章</a></li>
-              <li style="padding:8px 0"><a href="#panel-about" data-jump style="color:inherit;text-decoration:none">• 关于我</a></li>
-              <li style="padding:8px 0"><a href="#panel-high" data-jump style="color:inherit;text-decoration:none">• Highlights</a></li>
-            </ul>
-          </div>
-
-          <div style="height:12px"></div>
-
-          <div class="card">
-            <h4>订阅</h4>
-            <p style="color:var(--muted);font-size:13px;margin:8px 0">想收到更新？留下你的邮箱（示例）：</p>
-            <form onsubmit="event.preventDefault();alert('谢谢 — 这是示例表单，不会真正提交。');">
-              <input aria-label="email" placeholder="you@example.com" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
-              <div style="height:10px"></div>
-              <button style="width:100%;padding:8px;border-radius:8px;border:0;background:var(--accent);color:#06233b;font-weight:700;cursor:pointer">订阅</button>
-            </form>
-          </div>
-        </aside>
+      <!-- Highlights -->
+      <div id="panel-high" role="tabpanel" hidden>
+        <section class="highlights">
+          <h3>Highlights</h3>
+          <p class="meta">精选事项与速览</p>
+          <ul>
+            <li><strong>播客计划：</strong>准备启动一个以“文化身份”为主题的对谈节目。</li>
+            <li><strong>正在学习：</strong>深挖前端性能优化与可访问性。</li>
+            <li><strong>最新项目：</strong>一个可分享的学习笔记工具，支持导出 Markdown。</li>
+          </ul>
+        </section>
       </div>
     </section>
+
+    <!-- 右侧 aside -->
+    <aside>
+      <div class="card">
+        <h4>联系我</h4>
+        <p>📧 yixin.zhang.jp@gmail.com </p>
+        <p>🌏 Shanghai </p>
+      </div>
+      <div class="card">
+        <h4>社交媒体</h4>
+        <ul>
+          <li><a href="https://github.com/Elainezhang0510">GitHub</a></li>
+        </ul>
+      </div>
+    </aside>
   </main>
 
   <footer>
-    © <span id="year"></span> Kosumo 的 blog · Built with ❤️ · 这是一个静态示例
+    <p>© Kosumo's Blog.</p>
   </footer>
 
   <script>
-    // 简单的 tab 切换逻辑，支持 hash 导航与键盘
-    const tabs = document.querySelectorAll('nav.tabs button');
-    const panels = document.querySelectorAll('[role="tabpanel"]');
-
-    function activate(panelId){
-      panels.forEach(p=>{ p.hidden = p.id !== panelId; });
-      tabs.forEach(t=>{
-        const is = t.dataset.panel === panelId;
-        t.classList.toggle('active', is);
-        t.setAttribute('aria-selected', is? 'true' : 'false');
-      });
-    }
-
-    tabs.forEach(t=>{
-      t.addEventListener('click', ()=>{
-        const p = t.dataset.panel;
-        activate(p);
-        history.replaceState(null,'', '#' + p);
-      });
-      t.addEventListener('keydown', (e)=>{
-        if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
-          const idx = Array.from(tabs).indexOf(t);
-          const next = e.key === 'ArrowRight' ? (idx+1)%tabs.length : (idx-1+tabs.length)%tabs.length;
-          tabs[next].focus();
-        }
-      });
-    });
-
-    // 支持侧栏锚点点击
-    document.querySelectorAll('[data-jump]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
+    // 面板切换逻辑
+    const links = document.querySelectorAll("nav a");
+    const panels = document.querySelectorAll("[role='tabpanel']");
+    links.forEach(link => {
+      link.addEventListener("click", e => {
         e.preventDefault();
-        const target = a.getAttribute('href').replace('#','');
-        activate(target);
-        document.getElementById(target).scrollIntoView({behavior:'smooth'});
+        links.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+        panels.forEach(p => p.hidden = true);
+        document.getElementById(link.dataset.panel).hidden = false;
       });
     });
-
-    // 初始根据 URL hash
-    (function init(){
-      const hash = location.hash.replace('#','');
-      if(hash && document.getElementById(hash)) activate(hash);
-      else activate('panel-blog');
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
   </script>
 </body>
 </html>
+
