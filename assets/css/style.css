@@ -1,0 +1,153 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #0a0a0a;
+  color: #eee;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  padding: 20px 0;
+  background: #111;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: #ffd6f0;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a.active {
+  text-decoration: underline;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 40px 10%;
+  flex: 1;
+}
+
+/* 内容区 */
+.content {
+  flex: 2;
+  max-width: 700px;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  margin-bottom: 10px;
+}
+
+.post-list a {
+  color: #c7d2fe;
+  text-decoration: none;
+}
+
+.post-list a:hover {
+  text-decoration: underline;
+}
+
+/* 关于区 */
+.about {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffd6f0, #c7d2fe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.bio small {
+  color: var(--muted, #aaa);
+}
+
+/* Highlights */
+.highlights ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.highlights li {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 右侧 aside */
+aside {
+  flex: 1;
+  max-width: 250px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.card h4 {
+  margin-top: 0;
+  color: #ffd6f0;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card ul li {
+  margin-bottom: 6px;
+}
+
+.card ul li a {
+  color: #c7d2fe;
+  text-decoration: none;
+}
+
+.card ul li a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background: #111;
+  color: #888;
+  font-size: 14px;
+}
