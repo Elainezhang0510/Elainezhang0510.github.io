@@ -2,25 +2,32 @@
 
 ## 🌐 项目简介
 
-欢迎来到 **Kosumo's Website**！
+这是一个使用 **纯 HTML + CSS + JavaScript** 手写构建的静态个人博客网站，  
+托管在 **GitHub Pages** 上，无需 Jekyll 或其他框架。
 
-这是一个基于 **GitHub Pages** 服务和 **Jekyll** 静态网站生成器搭建的个人网站/博客项目。
+## 项目简介
+/
+├── index.html # 首页
+├── about.html # 个人简介页面
+├── highlights.html # Highlights 页面
+├── posts/ # 存放博文（HTML 或 Markdown）
+│ ├── post1.html
+│ └── post2.html
+└── assets/ # 静态资源目录
+├── css/ # 样式表
+│ └── style.css
+├── js/ # 脚本文件
+│ └── main.js
+└── images/ # 图片、头像、封面
 
-我们使用 Jekyll 预先将 Markdown 格式的内容、模板文件和样式文件编译成纯 HTML、CSS 和 JavaScript 文件，以确保网站拥有极快的加载速度、高安全性和简便的部署流程。
 
-## ⚙️ 静态网站架构：基于 Jekyll
+## 🧰 本地预览（可选）
 
-本项目采用 **Jekyll** 作为核心技术栈，它是一种**静态网站生成器 (Static Site Generator, SSG)**。
+如果想在本地预览网页：
 
-### 关键文件和目录结构
+```bash
+# 克隆仓库
+git clone https://github.com/Elainezhang0510/Elainezhang0510.github.io.git
 
-| 文件/目录 | 描述 |
-| :--- | :--- |
-| `_config.yml` | **Jekyll 的核心配置文件。***
-| `_posts/` | **博客文章目录。** 
-| `_layouts/` | **布局文件目录。** 
-| `_includes/` | **可重用组件目录。** 
-| `assets/` 或 `css/` | 存放样式表、图片、字体和 JavaScript 等静态资源文件。 |
-| 根目录下的 `.md` 或 `.html` 文件 | 独立的页面，例如 `index.html`（首页）、`about.md`（关于页面）。 |
-| **`_site/`** | **本地生成目录（已被 Git 忽略）。** 
-
+# 进入项目目录
+cd Elainezhang0510.github.io
