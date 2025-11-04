@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kosumo的blog</title>
+  <title>Kosumo Page</title>
   <style>
     :root{--accent:#6C63FF;--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2}
     *{box-sizing:border-box}
@@ -61,10 +61,13 @@
   <main>
     <section class="card" role="region" aria-label="site content">
       <nav class="tabs" role="tablist" aria-label="主导航">
-        <button id="tab-blog" role="tab" aria-selected="true" class="active" data-panel="panel-blog">博客</button>
-        <a href="blog/index.html">博客</a>
-        <button id="tab-about" role="tab" aria-selected="false" data-panel="panel-about">个人简介</button>
-        <button id="tab-high" role="tab" aria-selected="false" data-panel="panel-high">Highlights</button>
+        
+          <a href="index.html">首页</a>
+          <a href="blog/index.html">博客</a>
+          <a href="#about">个人简介</a>
+          <a href="#highlights">Highlights</a>
+
+
       </nav>
 
       <div class="grid">
@@ -89,7 +92,7 @@
               <p>记录构建一款小工具的思路、技术选型与踩到的坑，适合想把项目做成可交付作品的人。</p>
             </article>
 
-            <div style="margin-top:12px;color:var(--muted);font-size:13px">更多文章正在整理中…</div>
+            <div style="margin-top:12px;color:var(--muted);font-size:13px" Please stay tuned!</div>
           </div>
 
           <div id="panel-about" role="tabpanel" hidden>
@@ -144,7 +147,7 @@
   </main>
 
   <footer>
-    © <span id="year"></span> Kosumo 的 blog · Built with ❤️ · 这是一个静态示例
+    © <span id="year"></span> Kosumo Page· Built with ❤️ 
   </footer>
 
   <script>
