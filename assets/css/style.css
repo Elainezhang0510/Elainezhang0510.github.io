@@ -26,14 +26,19 @@ nav {
   gap: 20px;
 }
 
-nav a {
-  color: #ffd6f0;
-  text-decoration: none;
-  font-weight: 600;
-}
+nav a{
+  background:transparent;
+  border:0;
+  padding:10px 16px;
+  border-radius:10px;
+  color:var(--muted);
+  cursor:pointer;
+  font-weight:600}
 
-nav a.active {
-  text-decoration: underline;
+nav a.active{
+  color:var(--accent);
+  background:linear-gradient(90deg, rgba(108,99,255,0.08), rgba(61,163,255,0.02));
+  box-shadow:0 4px 14px rgba(108,99,255,0.06)
 }
 
 main {
