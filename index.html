@@ -1,90 +1,138 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kosumo的 Blog</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kosumo的blog</title>
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-
+  
 <body>
   <header>
-    <h1>Kosumo’s Blog</h1>
-    <nav>
-      <a href="#" data-panel="panel-home" class="active">主页</a>
-      <a href="#" data-panel="panel-about">关于</a>
-      <a href="#" data-panel="panel-high">Highlights</a>
-    </nav>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">K</div>
+      <div>
+        <h1>Kosumo的blog</h1>
+        <p class="lead">写写想法、记录学习与生活 </p>
+      </div>
+    </div>
   </header>
 
   <main>
-    <!-- 左侧主要内容 -->
-    <section class="content">
-      <!-- 主页 -->
-      <div id="panel-home" role="tabpanel">
-        <h2>最新文章</h2>
-        <ul class="post-list">
-          <li><a href="posts/post1.html">用声音连接文化：我的播客计划</a></li>
-          <li><a href="posts/post2.html">如何在学习编程时保持创造力</a></li>
-          <li><a href="posts/post3.html">我眼中的跨文化沟通</a></li>
-        </ul>
-      </div>
+    <section class="card" role="region" aria-label="site content">
+      <nav class="tabs" role="tablist" aria-label="主导航">
+        <button id="tab-blog" role="tab" aria-selected="true" class="active" data-panel="panel-blog" >博客</button>
+        <button id="tab-about" role="tab" aria-selected="false" data-panel="panel-about">个人简介</button>
+        <button id="tab-high" role="tab" aria-selected="false" data-panel="panel-high">Highlights</button>
+      </nav>
 
-      <!-- 关于 -->
-      <div id="panel-about" role="tabpanel" hidden>
-        <div class="about">
-          <div class="avatar">K</div>
-          <div class="bio">
-            <h3>关于 Kosumo</h3>
-            <p>你好，我是Kosumo,或者你也可以叫我Elaine.Find more about me at my blog page!</p>
-            <p>兴趣：网页前端&后端开发（HTML，CSS，Python-flask）</p>
+      <div class="grid">
+          <div class="main-col">
+              <div id="panel-blog" role="tabpanel">
+                  <!-- sample posts -->
+                  <article class="post">
+                      <h3>如何高效复习 — 我的五个策略</h3>
+                      <p class="meta">2025-10-10 · 分类：学习 · 阅读 412</p>
+                      <p>本文分享我在备考与日常学习中常用的五种策略：间隔重复、主动回忆、刻意练习、归纳笔记与健康作息。每一条都配有可执行的小步骤，帮助你把方法落地。</p>
+                  </article>
+
+                  <article class="post">
+                      <h3>在国外学习的文化冲击</h3>
+                      <p class="meta">2025-08-03 · 分类：生活 · 阅读 289</p>
+                      <p>留学生活既有自由也有不适应，本文从饮食、沟通与时间管理三方面谈感受与调整方法。</p>
+                  </article>
+
+                  <article class="post">
+                      <h3>项目日记：我的第一个 WebApp</h3>
+                      <p class="meta">2025-06-18 · 分类：编程 · 阅读 156</p>
+                      <p>记录构建一款小工具的思路、技术选型与踩到的坑，适合想把项目做成可交付作品的人。</p>
+                  </article>
+
+                  <div style="margin-top:12px;color:var(--muted);font-size:13px">更多文章正在整理中…</div>
+              </div>
+
+              <div id="panel-about" role="tabpanel" hidden>
+                  <div class="about">
+                      <div class="avatar">K</div>
+                      <div class="bio">
+                          <h3>关于 Kosumo</h3>
+                          <p><small>你好，我是 Kosumo，一名热爱编程与跨文化交流的学生/创作者。我喜欢把复杂的问题拆解成小任务，并通过写作把思路整理清楚。</small></p>
+                          <p>技能：HTML / CSS / JavaScript · Python · 数据分析 · 英语 · 普通话</p>
+                          <p>兴趣：播客、旅行、K-pop（aespa 粉）与烘焙。</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div id="panel-high" role="tabpanel" hidden>
+                  <section class="highlights">
+                      <h3>Highlights</h3>
+                      <p class="meta">精选事项与速览</p>
+                      <ul>
+                          <li><strong>播客计划：</strong>准备启动一个以“文化身份”为主题的对谈节目。</li>
+                          <li><strong>正在学习：</strong>深挖前端性能优化与可访问性。</li>
+                          <li><strong>最新项目：</strong>一个可分享的学习笔记工具，支持导出 Markdown。</li>
+                      </ul>
+                  </section>
+              </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Highlights -->
-      <div id="panel-high" role="tabpanel" hidden>
-        <section class="highlights">
-          <h3>Highlights</h3>
-          <p class="meta">精选事项与速览</p>
-        </section>
+          <aside>
+          <div class="card">
+              <h4>联系我</h4>
+              <p>📧 yixin.zhang.jp@gmail.com </p>
+              <p>🌏 Shanghai </p>
+          </div>
+          <div class="card">
+              <h4>社交媒体</h4>
+              <ul>
+                  <li><a href="https://github.com/Elainezhang0510">GitHub</a></li>
+              </ul>
+          </div>
+          </aside>
       </div>
     </section>
-
-    <!-- 右侧 aside -->
-    <aside>
-      <div class="card">
-        <h4>联系我</h4>
-        <p>📧 yixin.zhang.jp@gmail.com </p>
-        <p>🌏 Shanghai </p>
-      </div>
-      <div class="card">
-        <h4>社交媒体</h4>
-        <ul>
-          <li><a href="https://github.com/Elainezhang0510">GitHub</a></li>
-        </ul>
-      </div>
-    </aside>
   </main>
 
   <footer>
-    <p>© Kosumo's Blog.</p>
+    © <span id="year"></span> Kosumo 的 blog 
   </footer>
 
   <script>
-    // 面板切换逻辑
-    const links = document.querySelectorAll("nav a");
-    const panels = document.querySelectorAll("[role='tabpanel']");
-    links.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        links.forEach(l => l.classList.remove("active"));
-        link.classList.add("active");
-        panels.forEach(p => p.hidden = true);
-        document.getElementById(link.dataset.panel).hidden = false;
+    // 简单的 tab 切换逻辑，支持 hash 导航与键盘
+    const tabs = document.querySelectorAll('nav.tabs button');
+    const panels = document.querySelectorAll('[role="tabpanel"]');
+
+    function activate(panelId){
+      panels.forEach(p=>{ p.hidden = p.id !== panelId; });
+      tabs.forEach(t=>{
+        const is = t.dataset.panel === panelId;
+        t.classList.toggle('active', is);
+        t.setAttribute('aria-selected', is? 'true' : 'false');
+      });
+    }
+
+    tabs.forEach(t=>{
+      t.addEventListener('click', ()=>{
+        const p = t.dataset.panel;
+        activate(p);
+        history.replaceState(null,'', '#' + p);
+      });
+      t.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+          const idx = Array.from(tabs).indexOf(t);
+          const next = e.key === 'ArrowRight' ? (idx+1)%tabs.length : (idx-1+tabs.length)%tabs.length;
+          tabs[next].focus();
+        }
       });
     });
+
+    // 初始根据 URL hash
+    (function init(){
+      const hash = location.hash.replace('#','');
+      if(hash && document.getElementById(hash)) activate(hash);
+      else activate('panel-blog');
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
   </script>
 </body>
 </html>
-
