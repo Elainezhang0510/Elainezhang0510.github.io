@@ -65,6 +65,75 @@
     .back-home:hover {
       color: #000;
     }
+    /* 布局容器：左侧分类栏 + 右侧内容 */
+.layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 2rem auto;
+  gap: 2rem;
+}
+
+/* 分类栏样式 */
+.category-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  height: fit-content;
+}
+
+.filter-btn {
+  border: none;
+  background: #f0f0f0;
+  color: #333;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-weight: 600;
+}
+
+.filter-btn:hover {
+  background: #ddd;
+}
+
+.filter-btn.active {
+  background: #2a5bd7;
+  color: #fff;
+}
+
+/* 让搜索框在 header 居中 */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#searchBox {
+  flex: 1;
+  max-width: 300px;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1rem;
+  background: #f1f1f1;
+  color: #333;
+  text-align: center;
+}
+
+#searchBox:focus {
+  background: #fff;
+  box-shadow: 0 0 5px rgba(42, 91, 215, 0.3);
+}
+
   </style>
 </head>
 <body>
@@ -76,7 +145,8 @@
       <a href="../index.html">首页</a>
       <a href="../index.html#about">个人简介</a>
       <a href="../index.html#highlights">Highlights</a>
-    </nav>
+      </nav>
+    <input type="text" id="searchBox" placeholder="🔍 搜索文章..." />
   </header>
 
   <!-- 📖 文章列表容器 -->
@@ -97,32 +167,16 @@
     </div>
 
     <!-- 可继续添加更多博文 -->
-  </div>
-
-  <section class="blog-controls">
-  <div class="filters">
-    <button class="filter-btn active" data-category="all">All</button>
-    <button class="filter-btn" data-category="Maths">Maths</button>
-    <button class="filter-btn" data-category="Physics">Physics</button>
-    <button class="filter-btn" data-category="Econ">Econ</button>
-    <button class="filter-btn" data-category="My life">My life</button>
-  </div>
-
-  <input type="text" id="searchBox" placeholder="🔍 Search articles..." />
-</section>
-
-<section class="post-list">
-  <ul id="articles">
-    <li data-category="Maths"><a href="posts/maths-post1.html">积分的几何意义</a></li>
-    <li data-category="Physics"><a href="posts/physics-post1.html">光的干涉与衍射</a></li>
-    <li data-category="Econ"><a href="posts/econ-post1.html">需求弹性与市场调节</a></li>
-    <li data-category="My life"><a href="posts/life-post1.html">我在香港的留学日记</a></li>
-    <li data-category="Maths"><a href="posts/maths-post2.html">微分方程的物理应用</a></li>
-    <li data-category="Econ"><a href="posts/econ-post2.html">全球化与文化产业</a></li>
-  </ul>
-</section>
-
-
+   <div class="layout">
+    <!-- 左侧分类栏 -->
+    <aside class="category-bar">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="Maths">Maths</button>
+      <button class="filter-btn" data-category="Physics">Physics</button>
+      <button class="filter-btn" data-category="Econ">Econ</button>
+      <button class="filter-btn" data-category="My life">My life</button>
+    </aside>
+     
   <a class="back-home" href="../index.html">← 返回首页</a>
    
 </body>
