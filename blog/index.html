@@ -99,7 +99,62 @@
     <!-- 可继续添加更多博文 -->
   </div>
 
-  <a class="back-home" href="../index.html">← 返回首页</a>
+  <section class="blog-controls">
+  <div class="filters">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="Maths">Maths</button>
+    <button class="filter-btn" data-category="Physics">Physics</button>
+    <button class="filter-btn" data-category="Econ">Econ</button>
+    <button class="filter-btn" data-category="My life">My life</button>
+  </div>
 
+  <input type="text" id="searchBox" placeholder="🔍 Search articles..." />
+</section>
+
+<section class="post-list">
+  <ul id="articles">
+    <li data-category="Maths"><a href="posts/maths-post1.html">积分的几何意义</a></li>
+    <li data-category="Physics"><a href="posts/physics-post1.html">光的干涉与衍射</a></li>
+    <li data-category="Econ"><a href="posts/econ-post1.html">需求弹性与市场调节</a></li>
+    <li data-category="My life"><a href="posts/life-post1.html">我在香港的留学日记</a></li>
+    <li data-category="Maths"><a href="posts/maths-post2.html">微分方程的物理应用</a></li>
+    <li data-category="Econ"><a href="posts/econ-post2.html">全球化与文化产业</a></li>
+  </ul>
+</section>
+
+
+  <a class="back-home" href="../index.html">← 返回首页</a>
+   
 </body>
 </html>
+
+<script>
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const articles = document.querySelectorAll("#articles li");
+  const searchBox = document.getElementById("searchBox");
+
+  // 分类过滤
+  filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const category = btn.dataset.category;
+      articles.forEach(article => {
+        const match = category === "all" || article.dataset.category === category;
+        article.style.display = match ? "" : "none";
+      });
+      searchBox.value = ""; // 切换分类时清空搜索框
+    });
+  });
+
+  // 搜索功能
+  searchBox.addEventListener("input", e => {
+    const keyword = e.target.value.toLowerCase();
+    articles.forEach(article => {
+      const title = article.textContent.toLowerCase();
+      article.style.display = title.includes(keyword) ? "" : "none";
+    });
+  });
+</script>
+
