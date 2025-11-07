@@ -158,11 +158,13 @@ header {
     <div class="layout">
     <!-- 左侧分类栏 -->
     <aside class="category-bar">
-      <button class="filter-btn active" data-category="all">All</button>
-      <button class="filter-btn" data-category="Maths">Maths</button>
-      <button class="filter-btn" data-category="Physics">Physics</button>
-      <button class="filter-btn" data-category="Econ">Econ</button>
-      <button class="filter-btn" data-category="My life">My life</button>
+     <ul>
+    <li><button data-category="all" class="active">All</button></li>
+    <li><button data-category="maths">Maths</button></li>
+    <li><button data-category="physics">Physics</button></li>
+    <li><button data-category="econ">Econ</button></li>
+    <li><button data-category="life">My life</button></li>
+  </ul>
     </aside>
   </div>
 
@@ -172,7 +174,7 @@ header {
 
     <!-- 🧩 每个文章预览块 -->
     <div class="post-preview" data-category="My life">
-      <h2><a href="blog/mylife1.html">About My Blog</a></h2>
+      <h2><a href="mylife1.html">About My Blog</a></h2>
       <p>你好，我是Kosumo！</p>
       <small>发布于 2025-11-07</small>
     </div>
