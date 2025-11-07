@@ -158,13 +158,11 @@ header {
     <div class="layout">
     <!-- 左侧分类栏 -->
     <aside class="category-bar">
-     <ul>
-    <li><button data-category="all" class="active">All</button></li>
-    <li><button data-category="maths">Maths</button></li>
-    <li><button data-category="physics">Physics</button></li>
-    <li><button data-category="econ">Econ</button></li>
-    <li><button data-category="life">My life</button></li>
-  </ul>
+    <button data-category="all" class="active">All</button>
+    <button data-category="maths">Maths</button>
+    <button data-category="physics">Physics</button>
+    <button data-category="econ">Econ</button>
+    <button data-category="life">My life</button>
     </aside>
   </div>
 
@@ -180,31 +178,34 @@ header {
     </div>
 
      
-  <a class="back-home" href="../index.html">← 返回首页</a>
+  <a class="back-home" href="index.html">← 返回首页</a>
    
 </body>
 </html>
 
 <script>
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const articles = document.querySelectorAll("#articles li");
+  const filterButtons = document.querySelectorAll(".category-bar button");
+  const articles = document.querySelectorAll("#.post-preview");
   const searchBox = document.getElementById("searchBox");
+  
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    buttons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
 
-  // 分类过滤
-  filterButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      filterButtons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
+    const filter = button.dataset.category.toLowerCase();
 
-      const category = btn.dataset.category;
-      articles.forEach(article => {
-        const match = category === "all" || article.dataset.category === category;
-        article.style.display = match ? "" : "none";
-      });
-      searchBox.value = ""; // 切换分类时清空搜索框
+    posts.forEach(post => {
+      const category = post.dataset.category.toLowerCase();
+      if (filter === "all" || category === filter) {
+        post.style.display = "block";
+      } else {
+        post.style.display = "none";
+      }
     });
   });
-
+});
+  
   // 搜索功能
   searchBox.addEventListener("input", e => {
     const keyword = e.target.value.toLowerCase();
