@@ -110,7 +110,8 @@
   background: #ddd;
 }
 
-.category-bar button.active {
+.category-bar button.active,
+    .category-bar button[aria-pressed='true']{
   background: #2a5bd7;
   color: #fff;
 }
@@ -157,13 +158,13 @@ header {
 
     <div class="layout">
     <!-- 左侧分类栏 -->
-    <aside class="category-bar">
-    <button data-category="all" class="active">All</button>
-    <button data-category="maths">Maths</button>
-    <button data-category="physics">Physics</button>
-    <button data-category="econ">Econ</button>
-    <button data-category="life">My life</button>
-    </aside>
+    <aside class="category-bar" aria-label="文章分类">
+    <button data-category="all" class="active" aria-pressed="true">All</button>
+    <button data-category="maths" aria-pressed="false">Maths</button>
+    <button data-category="physics" aria-pressed="false">Physics</button>
+    <button data-category="econ" aria-pressed="false">Econ</button>
+    <button data-category="life" aria-pressed="false">My life</button>
+  </aside>
   </div>
 
   <!-- 📖 文章列表容器 -->
@@ -188,24 +189,28 @@ header {
   const articles = document.querySelectorAll(".post-preview");
   const searchBox = document.getElementById("searchBox");
   
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    buttons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
+categoryButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    categoryButtons.forEach(btn => {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-pressed', 'false');
+    });
 
-    const filter = button.dataset.category.toLowerCase();
+    button.classList.add('active');
+    button.setAttribute('aria-pressed', 'true');
+
+    const category = button.dataset.category;
+    const posts = document.querySelectorAll('.post-preview');
 
     posts.forEach(post => {
-      const category = post.dataset.category.toLowerCase();
-      if (filter === "all" || category === filter) {
-        post.style.display = "block";
+      if (category === 'all' || post.dataset.category === category) {
+        post.style.display = '';
       } else {
-        post.style.display = "none";
+        post.style.display = 'none';
       }
     });
   });
 });
-  
   // 搜索功能
   searchBox.addEventListener("input", e => {
     const keyword = e.target.value.toLowerCase();
