@@ -6,7 +6,6 @@
 托管在 **GitHub Pages** 上，无需 Jekyll 或其他框架。
 
 ## 项目简介
-/
 ├── index.html # 首页
 ├── about.html # 个人简介页面
 ├── highlights.html # Highlights 页面
