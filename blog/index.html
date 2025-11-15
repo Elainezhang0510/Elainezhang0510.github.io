@@ -204,8 +204,11 @@ categoryButtons.forEach(button => {
     button.classList.add('active');
     button.setAttribute('aria-pressed', 'true');
 
-    const category = button.dataset.category;
+    const category = button.dataset.category.toLowerCase();
     const posts = document.querySelectorAll('.post-preview');
+
+    posts.forEach(post => {
+      const postCategory = post.dataset.category.toLowerCase();
 
     posts.forEach(post => {
       if (category === 'all' || post.dataset.category === category) {
