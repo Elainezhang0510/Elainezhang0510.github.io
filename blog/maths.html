@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Semantic Vectors 1 | Kosumo 的 Blog</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <div class="article-page">
+    <h1>Semantic Vectors 1</h1>
+    <div class="meta">分类：Maths ｜ 发布日期：2025-11-15 </div>
+
+    <h3>Why embeddings matter?</h3>
+    <p>
+      1.Define meaning by linguistic distribution: the meaning of a word is decided by its neighboring words
+    </p>
+    <p>
+      2.meaning as a point in multidimensional space which is a vector 
+    </p>
+    
+    <h3> Dot product of two vectors</h3>
+    <p>By representing words by vectors, the similarity can be measured numerically and build connections between different words.</p>
+    <p>The comparison of similarity can be done by cosine value of the angle between the two vectors</p>
+    <p>When the meanings of two words are totally irrelevant, the cosine value is -1, while they are highly relevant with the other, the cosine value is 1.</p>
+
+    <h3> How to evaluate which word is more important in a sentence?</h3>
+    <p>
+       The original method is counting the frequiences of a word in a sentence however it may involve unnecessary information.
+    </p>
+    <p>
+      For example  there must be a lot of 'the' or 'and' in a sentence.
+    </p>
+    <p>
+      And there are mainly two methods to address this problem. But here I will introduce one of them.
+    </p>
+    <p>
+       tf_idf： inverse document to lower the impacts of unnecessary information
+    </p>
+    <p>
+      TF which refers to the term frequency in a document or in a sentence.
+    </p>
+    <p>
+      $$tf_t,f=count(t,f)$$
+    </p>
+    <p>
+      IDF refers to the inverse document frequency. N in the following formula is the number of sentences or documents in the collection.
+    </p>
+    <p>
+      $$df_t$$ is the number of documents or sentences in which the word occurs in.
+    <p>
+      $$Idf_t=lg{N\over df_t}$$
+    </p>
+    <p> 
+      Therefore, Tf-IDF can be calculated is the product of TF and IDF.
+    </p>
+    <p>
+      $$ w_t,d=tf_t,d\times idf_t$$
+    </p>
+
+    <h3> In the next blog, I would introduce how to realise TF-IDF algorithm via Python3. </h3>
+
+    <a href="../index.html" class="back-home">← 返回主页</a>
+  </div>
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
