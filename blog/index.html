@@ -200,25 +200,23 @@ categoryButtons.forEach(button => {
       btn.classList.remove('active');
       btn.setAttribute('aria-pressed', 'false');
     });
-
     button.classList.add('active');
     button.setAttribute('aria-pressed', 'true');
-
+    
     const category = button.dataset.category.toLowerCase();
-    const posts = document.querySelectorAll('.post-preview');
 
     posts.forEach(post => {
       const postCategory = post.dataset.category.toLowerCase();
 
-    posts.forEach(post => {
-      if (category === 'all' || post.dataset.category === category) {
-        post.style.display = '';
+      if (category === "all" || category === postCategory) {
+        post.style.display = "";
       } else {
-        post.style.display = 'none';
+        post.style.display = "none";
       }
     });
   });
 });
+
   // 搜索功能
   searchBox.addEventListener("input", e => {
     const keyword = e.target.value.toLowerCase();
