@@ -1,0 +1,35 @@
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECE205 Notes 1| Kosumo 的 Blog</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="article-page">
+<h2>理想电流源 V.S 实际电流源</h2>
+<h3>元器件功能</h3>
+<p>独立电流源是一种理想的电路元件，它的作用是<strong>无论其两端的电压如何变化，它都能提供一个恒定不变的电流</strong>。
+圆圈内有一个<strong>箭头</strong>（电路的参考流动方向）的电子元器件是一个电流源。
+符号旁边的数值代表了这个电流元提供的<strong>恒定</strong>电流值。</p>
+<img src="../assets/img/currentsource.png alt="电流源">
+<h3>内阻（Internal resistance）V.S电阻（Resistance）</h3>
+<p><strong>内阻</strong>：特指电源或信号源内部固有的电阻。例如，电池内部的电解液结构就会产生内阻。
+在电路理论中，理想电流源是一个<strong>内阻为无穷大</strong>的元器件。根据电功率公式：
+$$P_内=\frac{V^2}{R}$$</p>
+<p>当内阻无穷大时
+$$P_内=\frac{V^2}{\infty}$$</p>
+<p>内部的功率损耗为0
+$$P_内=0$$</p>
+<p>所以，理想电路源内部可以等效为断路，从而让所有电流流向外部电路。</p>
+<p>但是现实中的实际电流源的电阻值不是无限大，而是一个<strong>有限但非常大</strong>的内阻，可以等效为一个电流源和内阻$R_内$并联，可以完美地模拟电流分流的现象。</p>
+<p><strong>短路</strong> ($R_{\text{外}} \to 0$)|几乎所有 $I_{\text{源}}$ 流向 $R_{\text{外}}$ ($R_{\text{内}}$ 阻值大，被短路)|$I_{\text{外}} \approx I_{\text{源}}$ (输出最大电流)</p>
+<p><strong>断路</strong> ($R_{\text{外}} \to \infty$)|所有 $I_{\text{源}}$ 只能流向 $R_{\text{内}}$ (内部泄漏)|$I_{\text{外}} = 0$ ($V_{\text{外}} = I_{\text{源}} \cdot R_{\text{内}}$)</p>
+<p><strong>正常负载</strong> ($R_{\text{外}}$ 有限)|$I_{\text{源}}$ 按比例分流给 $R_{\text{内}}$ 和 $R_{\text{外}}$|$I_{\text{外}} &lt; I_{\text{源}}$</p>
+<a href="../index.html" class="back-home">← 返回主页</a>
+</div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer=""></script>
+
+</html>
